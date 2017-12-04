@@ -1,0 +1,128 @@
+
+active_set: SET1
+
+sets:
+        - set_id: SET1
+learner_method_parameters:
+  keras_seq:
+    seed: 0
+    keras:
+      backend: tensorflow 
+      backend_parameters:
+        floatX: float32
+        device: gpu
+        fastmath: true
+        optimizer: fast_run
+        openmp: true
+        threads: 4
+        CNR: true
+
+    input_sequencer:
+      enable: false
+
+    temporal_shifter:
+      enable: false
+
+    generator:
+      enable: false
+      method: feature_generator
+      max_q_size: 1
+      workers: 1
+      parameters:
+        buffer_size: 10
+
+    validation:
+      enable: true
+      setup_source: generated_event_file_balanced
+      validation_amount: 0.10
+      seed: 123
+
+    training:
+      epochs: 200
+      batch_size: 256
+      shuffle: true
+
+      epoch_processing:
+        enable: true
+
+        external_metrics:
+          enable: true
+          evaluation_interval: 1
+          metrics:
+            - name: sed_eval.event_based.overall.error_rate.error_rate
+              label: ER
+              parameters:
+                evaluate_onset: true
+                evaluate_offset: false
+                t_collar: 0.5
+                percentage_of_length: 0.5
+            - name: sed_eval.event_based.overall.f_measure.f_measure
+              label: F1
+              parameters:
+                evaluate_onset: true
+                evaluate_offset: false
+                t_collar: 0.5
+                percentage_of_length: 0.5
+
+      callbacks:
+        - type: Plotter
+          parameters:
+            interactive: true
+            save: false
+            output_format: pdf
+            focus_span: 10
+            plotting_rate: 5
+
+        - type: Stopper
+          parameters:
+            monitor: sed_eval.event_based.overall.error_rate.error_rate
+            initial_delay: 20
+            min_delta: 0.01
+            patience: 10
+
+        - type: Stasher
+          parameters:
+            monitor: sed_eval.event_based.overall.error_rate.error_rate
+            initial_delay: 20
+
+    model:
+      constants:
+        LAYER_SIZE: 50
+        LAYER_INIT: uniform
+        LAYER_ACTIVATION: relu
+        DROPOUT: 0.2
+
+      config:
+        - class_name: Dense
+          config:
+            units: LAYER_SIZE
+            kernel_initializer: LAYER_INIT
+            activation: LAYER_ACTIVATION
+
+        - class_name: Dropout
+          config:
+            rate: DROPOUT
+
+        - class_name: Dense
+          config:
+            units: LAYER_SIZE
+            kernel_initializer: LAYER_INIT
+            activation: LAYER_ACTIVATION
+
+        - class_name: Dropout
+          config:
+            rate: DROPOUT
+
+        - class_name: Dense
+          config:
+            units: CLASS_COUNT
+            kernel_initializer: LAYER_INIT
+            activation: sigmoid
+
+      loss: binary_crossentropy
+
+      optimizer:
+        type: Adam
+
+      metrics:
+        - binary_accuracy

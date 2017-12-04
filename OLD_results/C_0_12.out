@@ -1,0 +1,263 @@
+[I] DCASE 2017::Acoustic Scene Classification / Baseline System
+[I] 
+[I] Initialize [Development setup][folds]
+[I] ==================================================
+[I] 
+[I]   System              
+[I]     Name                 : DCASE 2017::Acoustic Scene Classification / Baseline System
+[I]     Parameter set        : C_0_12
+[I]     Setup                : Python[3.6.2], Numpy[1.13.3], sklearn[0.19.1], Keras[2.1.1], Theano[0.9.0], Librosa[0.5.1]
+[I]   Dataset             
+[I]     Name                 : TUT-acoustic-scenes-2017-development
+[I]     Active folds         : [1, 2, 3, 4]
+[I]   Evaluator           
+[I]     Save path            : ../applications/system/task1/evaluator
+[I]   DONE     [0:00:00.438720 ] 
+[I] 
+[I] Feature extractor
+[I] ==================================================
+[I] 
+[I]   DONE     [0:00:02.514744 ] [4680 items] 
+[I] 
+[I] Feature normalizer
+[I] ==================================================
+[I] 
+[I]   DONE     [0:00:00.003478 ] 
+[I] 
+[I] System training
+[I] ==================================================
+[I] 
+[D]   Validation set statistics
+[D]   Scene label          | Validation amount (%) 
+[D]   -------------------- + -------------------- 
+[D]   beach                | 12.82 
+[D]   bus                  | 10.26 
+[D]   cafe/restaurant      | 12.82 
+[D]   car                  | 12.82 
+[D]   city_center          | 12.82 
+[D]   forest_path          | 11.54 
+[D]   grocery_store        | 12.82 
+[D]   home                 | 15.38 
+[D]   library              | 14.10 
+[D]   metro_station        | 10.26 
+[D]   office               | 10.26 
+[D]   park                 | 14.10 
+[D]   residential_area     | 12.82 
+[D]   train                | 10.26 
+[D]   tram                 | 12.82 
+[D]   
+[D]   Training items 	[1540575]
+[D]   Validation items 	[217935]
+[D]   Keras
+[D]     Backend 	[tensorflow]
+[D]     BLAS library	[MKL]		(Threads[4], MKL_CBWR[COMPATIBLE])
+[D]   Tensorflow
+[D]     Device 		[gpu]
+[D]   
+Using TensorFlow backend.
+[D]   Model summary
+[D]     Layer type      | Output               | Param   | Name                   | Connected to                | Activ.  | Init   
+[D]     --------------- + -------------------- + ------  + ---------------------  + --------------------------- + ------- + ------
+[D]     Dense           | (None, 60)           | 2460    | dense_1                | dense_1_input[0][0]         | relu    | uniform
+[D]     Dropout         | (None, 60)           | 0       | dropout_1              | dense_1[0][0]               | ---     | ---    
+[D]     Dense           | (None, 50)           | 3050    | dense_2                | dropout_1[0][0]             | relu    | uniform
+[D]     Dropout         | (None, 50)           | 0       | dropout_2              | dense_2[0][0]               | ---     | ---    
+[D]     Dense           | (None, 30)           | 1530    | dense_3                | dropout_2[0][0]             | relu    | uniform
+[D]     Dropout         | (None, 30)           | 0       | dropout_3              | dense_3[0][0]               | ---     | ---    
+[D]     Dense           | (None, 15)           | 465     | dense_4                | dropout_3[0][0]             | softmax | uniform
+[D]   
+[D]   Parameters
+[D]     Trainable	[7,505]
+[D]     Non-Trainable	[0]
+[D]     Total		[7,505]
+[D]   
+[D]   Feature vector 	[40]
+[D]   Batch size 	[256]
+[D]   Epochs 		[200]
+2017-11-29 13:58:40.489352: I tensorflow/core/platform/cpu_feature_guard.cc:137] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX
+2017-11-29 13:58:40.730800: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1030] Found device 0 with properties: 
+name: Tesla K20m major: 3 minor: 5 memoryClockRate(GHz): 0.758
+pciBusID: 0000:03:00.0
+totalMemory: 4.66GiB freeMemory: 4.59GiB
+2017-11-29 13:58:40.920878: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1030] Found device 1 with properties: 
+name: Tesla K20m major: 3 minor: 5 memoryClockRate(GHz): 0.758
+pciBusID: 0000:83:00.0
+totalMemory: 4.66GiB freeMemory: 4.59GiB
+2017-11-29 13:58:40.920969: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1045] Device peer to peer matrix
+2017-11-29 13:58:40.921005: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1051] DMA: 0 1 
+2017-11-29 13:58:40.921015: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1061] 0:   Y N 
+2017-11-29 13:58:40.921020: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1061] 1:   N Y 
+2017-11-29 13:58:40.921037: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1120] Creating TensorFlow device (/device:GPU:0) -> (device: 0, name: Tesla K20m, pci bus id: 0000:03:00.0, compute capability: 3.5)
+2017-11-29 13:58:40.921045: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1120] Creating TensorFlow device (/device:GPU:1) -> (device: 1, name: Tesla K20m, pci bus id: 0000:83:00.0, compute capability: 3.5)
+[D]   Validation set statistics
+[D]   Scene label          | Validation amount (%) 
+[D]   -------------------- + -------------------- 
+[D]   beach                | 11.54 
+[D]   bus                  | 10.26 
+[D]   cafe/restaurant      | 11.54 
+[D]   car                  | 10.26 
+[D]   city_center          | 12.82 
+[D]   forest_path          | 10.26 
+[D]   grocery_store        | 11.54 
+[D]   home                 | 10.39 
+[D]   library              | 15.38 
+[D]   metro_station        | 10.26 
+[D]   office               | 10.26 
+[D]   park                 | 11.54 
+[D]   residential_area     | 11.54 
+[D]   train                | 10.26 
+[D]   tram                 | 10.26 
+[D]   
+[D]   Training items 	[1560114]
+[D]   Validation items 	[196893]
+[D]   Keras
+[D]     Backend 	[tensorflow]
+[D]     BLAS library	[MKL]		(Threads[4], MKL_CBWR[COMPATIBLE])
+[D]   Tensorflow
+[D]     Device 		[gpu]
+[D]   
+[D]   Model summary
+[D]     Layer type      | Output               | Param   | Name                   | Connected to                | Activ.  | Init   
+[D]     --------------- + -------------------- + ------  + ---------------------  + --------------------------- + ------- + ------
+[D]     Dense           | (None, 60)           | 2460    | dense_5                | dense_5_input[0][0]         | relu    | uniform
+[D]     Dropout         | (None, 60)           | 0       | dropout_4              | dense_5[0][0]               | ---     | ---    
+[D]     Dense           | (None, 50)           | 3050    | dense_6                | dropout_4[0][0]             | relu    | uniform
+[D]     Dropout         | (None, 50)           | 0       | dropout_5              | dense_6[0][0]               | ---     | ---    
+[D]     Dense           | (None, 30)           | 1530    | dense_7                | dropout_5[0][0]             | relu    | uniform
+[D]     Dropout         | (None, 30)           | 0       | dropout_6              | dense_7[0][0]               | ---     | ---    
+[D]     Dense           | (None, 15)           | 465     | dense_8                | dropout_6[0][0]             | softmax | uniform
+[D]   
+[D]   Parameters
+[D]     Trainable	[7,505]
+[D]     Non-Trainable	[0]
+[D]     Total		[7,505]
+[D]   
+[D]   Feature vector 	[40]
+[D]   Batch size 	[256]
+[D]   Epochs 		[200]
+[D]   Validation set statistics
+[D]   Scene label          | Validation amount (%) 
+[D]   -------------------- + -------------------- 
+[D]   beach                | 11.54 
+[D]   bus                  | 10.26 
+[D]   cafe/restaurant      | 11.54 
+[D]   car                  | 10.26 
+[D]   city_center          | 14.10 
+[D]   forest_path          | 10.26 
+[D]   grocery_store        | 11.54 
+[D]   home                 | 10.39 
+[D]   library              | 14.10 
+[D]   metro_station        | 10.26 
+[D]   office               | 10.26 
+[D]   park                 | 11.54 
+[D]   residential_area     | 11.54 
+[D]   train                | 10.26 
+[D]   tram                 | 10.26 
+[D]   
+[D]   Training items 	[1560114]
+[D]   Validation items 	[196893]
+[D]   Keras
+[D]     Backend 	[tensorflow]
+[D]     BLAS library	[MKL]		(Threads[4], MKL_CBWR[COMPATIBLE])
+[D]   Tensorflow
+[D]     Device 		[gpu]
+[D]   
+[D]   Model summary
+[D]     Layer type      | Output               | Param   | Name                   | Connected to                | Activ.  | Init   
+[D]     --------------- + -------------------- + ------  + ---------------------  + --------------------------- + ------- + ------
+[D]     Dense           | (None, 60)           | 2460    | dense_9                | dense_9_input[0][0]         | relu    | uniform
+[D]     Dropout         | (None, 60)           | 0       | dropout_7              | dense_9[0][0]               | ---     | ---    
+[D]     Dense           | (None, 50)           | 3050    | dense_10               | dropout_7[0][0]             | relu    | uniform
+[D]     Dropout         | (None, 50)           | 0       | dropout_8              | dense_10[0][0]              | ---     | ---    
+[D]     Dense           | (None, 30)           | 1530    | dense_11               | dropout_8[0][0]             | relu    | uniform
+[D]     Dropout         | (None, 30)           | 0       | dropout_9              | dense_11[0][0]              | ---     | ---    
+[D]     Dense           | (None, 15)           | 465     | dense_12               | dropout_9[0][0]             | softmax | uniform
+[D]   
+[D]   Parameters
+[D]     Trainable	[7,505]
+[D]     Non-Trainable	[0]
+[D]     Total		[7,505]
+[D]   
+[D]   Feature vector 	[40]
+[D]   Batch size 	[256]
+[D]   Epochs 		[200]
+[D]   Validation set statistics
+[D]   Scene label          | Validation amount (%) 
+[D]   -------------------- + -------------------- 
+[D]   beach                | 11.54 
+[D]   bus                  | 10.26 
+[D]   cafe/restaurant      | 11.54 
+[D]   car                  | 10.26 
+[D]   city_center          | 14.10 
+[D]   forest_path          | 10.26 
+[D]   grocery_store        | 11.54 
+[D]   home                 | 10.26 
+[D]   library              | 14.10 
+[D]   metro_station        | 10.26 
+[D]   office               | 10.26 
+[D]   park                 | 11.54 
+[D]   residential_area     | 11.54 
+[D]   train                | 10.26 
+[D]   tram                 | 10.26 
+[D]   
+[D]   Training items 	[1561617]
+[D]   Validation items 	[196893]
+[D]   Keras
+[D]     Backend 	[tensorflow]
+[D]     BLAS library	[MKL]		(Threads[4], MKL_CBWR[COMPATIBLE])
+[D]   Tensorflow
+[D]     Device 		[gpu]
+[D]   
+[D]   Model summary
+[D]     Layer type      | Output               | Param   | Name                   | Connected to                | Activ.  | Init   
+[D]     --------------- + -------------------- + ------  + ---------------------  + --------------------------- + ------- + ------
+[D]     Dense           | (None, 60)           | 2460    | dense_13               | dense_13_input[0][0]        | relu    | uniform
+[D]     Dropout         | (None, 60)           | 0       | dropout_10             | dense_13[0][0]              | ---     | ---    
+[D]     Dense           | (None, 50)           | 3050    | dense_14               | dropout_10[0][0]            | relu    | uniform
+[D]     Dropout         | (None, 50)           | 0       | dropout_11             | dense_14[0][0]              | ---     | ---    
+[D]     Dense           | (None, 30)           | 1530    | dense_15               | dropout_11[0][0]            | relu    | uniform
+[D]     Dropout         | (None, 30)           | 0       | dropout_12             | dense_15[0][0]              | ---     | ---    
+[D]     Dense           | (None, 15)           | 465     | dense_16               | dropout_12[0][0]            | softmax | uniform
+[D]   
+[D]   Parameters
+[D]     Trainable	[7,505]
+[D]     Non-Trainable	[0]
+[D]     Total		[7,505]
+[D]   
+[D]   Feature vector 	[40]
+[D]   Batch size 	[256]
+[D]   Epochs 		[200]
+[I]   DONE     [0:34:53.394261 ] 
+[I] 
+[I] System testing
+[I] ==================================================
+[I] 
+[I]   DONE     [0:01:23.028941 ] 
+[I] 
+[I] System evaluation [Development setup][folds]
+[I] ==================================================
+[I] 
+[I]   File-wise evaluation, over 4 folds
+[I]      Scene label          | Nref : Nsys | Accuracy |  | Fold1    | Fold2    | Fold3    | Fold4    |
+[I]      =====================+======+======+==========+  +==========+==========+==========+==========+
+[I]      beach                |  312 :  294 |  73.4 %  |  |  82.1 %  |  57.7 %  |  93.6 %  |  60.3 %  |
+[I]      bus                  |  312 :  394 |  83.3 %  |  |  87.2 %  |  64.1 %  |  89.7 %  |  92.3 %  |
+[I]      cafe/restaurant      |  312 :  353 |  63.8 %  |  |  52.6 %  |  69.2 %  |  61.5 %  |  71.8 %  |
+[I]      car                  |  312 :  330 |  96.2 %  |  |  93.6 %  |  97.4 %  |  93.6 %  | 100.0 %  |
+[I]      city_center          |  312 :  386 |  88.8 %  |  |  87.2 %  |  89.7 %  |  82.1 %  |  96.2 %  |
+[I]      forest_path          |  312 :  349 |  78.5 %  |  |  92.3 %  |  93.6 %  |  80.8 %  |  47.4 %  |
+[I]      grocery_store        |  312 :  300 |  63.5 %  |  |  76.9 %  |  61.5 %  |  75.6 %  |  39.7 %  |
+[I]      home                 |  318 :  233 |  59.7 %  |  |  47.4 %  |  60.5 %  |  63.0 %  |  67.9 %  |
+[I]      library              |  312 :  249 |  52.6 %  |  |  23.1 %  |  56.4 %  |  76.9 %  |  53.8 %  |
+[I]      metro_station        |  312 :  352 |  88.8 %  |  |  91.0 %  |  80.8 %  |  85.9 %  |  97.4 %  |
+[I]      office               |  312 :  366 |  98.4 %  |  |  98.7 %  |  97.4 %  | 100.0 %  |  97.4 %  |
+[I]      park                 |  312 :  282 |  58.7 %  |  |  85.9 %  |  60.3 %  |  41.0 %  |  47.4 %  |
+[I]      residential_area     |  312 :  329 |  56.1 %  |  |  59.0 %  |  55.1 %  |  56.4 %  |  53.8 %  |
+[I]      train                |  312 :  150 |  39.1 %  |  |  30.8 %  |  30.8 %  |  43.6 %  |  51.3 %  |
+[I]      tram                 |  312 :  319 |  70.2 %  |  |  83.3 %  |  61.5 %  |  61.5 %  |  74.4 %  |
+[I]      =====================+======+======+==========+  +==========+==========+==========+==========+
+[I]      Overall accuracy     | 4686 : 4686 |  71.4 %  |  |  72.7 %  |  69.1 %  |  73.7 %  |  70.1 %  |
+[I]      Average class acc.   |      :      |  71.4 %  |  |  72.7 %  |  69.1 %  |  73.7 %  |  70.1 %  |
+[I] 
+[I]   DONE     [0:00:02.860569 ] 
+[I] 

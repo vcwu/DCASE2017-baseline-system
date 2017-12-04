@@ -1,0 +1,129 @@
+[I] DCASE 2017::Acoustic Scene Classification / Baseline System
+[I] 
+[I] Initialize [Development setup][full]
+[I] ==================================================
+[I] 
+[I]   System              
+[I]     Name                 : DCASE 2017::Acoustic Scene Classification / Baseline System
+[I]     Parameter set        : C_0_10
+[I]     Setup                : Python[3.6.2], Numpy[1.13.3], sklearn[0.19.1], Keras[2.1.1], Theano[0.9.0], Librosa[0.5.1]
+[I]   Dataset             
+[I]     Name                 : TUT-acoustic-scenes-2017-development
+[I]     Active folds         : [0]
+[I]   Recognizer          
+[I]     Save path            : ../applications/challenge_submission/task1
+[I]   Evaluator           
+[I]     Save path            : ../applications/system/task1/evaluator
+[I]   DONE     [0:00:00.485859 ] 
+[I] 
+[I] Feature extractor
+[I] ==================================================
+[I] 
+[I]   DONE     [0:00:01.743192 ] [9360 items] 
+[I] 
+[I] Feature normalizer
+[I] ==================================================
+[I] 
+[I]   DONE     [0:00:00.001647 ] 
+[I] 
+[I] System training
+[I] ==================================================
+[I] 
+[D]   Validation set statistics
+[D]   Scene label          | Validation amount (%) 
+[D]   -------------------- + -------------------- 
+[D]   beach                | 9.62 
+[D]   bus                  | 9.62 
+[D]   cafe/restaurant      | 9.62 
+[D]   car                  | 9.62 
+[D]   city_center          | 9.62 
+[D]   forest_path          | 9.62 
+[D]   grocery_store        | 9.62 
+[D]   home                 | 9.62 
+[D]   library              | 10.58 
+[D]   metro_station        | 9.62 
+[D]   office               | 10.58 
+[D]   park                 | 9.62 
+[D]   residential_area     | 9.62 
+[D]   train                | 9.62 
+[D]   tram                 | 9.62 
+[D]   
+[D]   Training items 	[2116224]
+[D]   Validation items 	[228456]
+[D]   Keras
+[D]     Backend 	[tensorflow]
+[D]     BLAS library	[MKL]		(Threads[4], MKL_CBWR[COMPATIBLE])
+[D]   Tensorflow
+[D]     Device 		[gpu]
+[D]   
+Using TensorFlow backend.
+[D]   Model summary
+[D]     Layer type      | Output               | Param   | Name                   | Connected to                | Activ.  | Init   
+[D]     --------------- + -------------------- + ------  + ---------------------  + --------------------------- + ------- + ------
+[D]     Dense           | (None, 60)           | 2460    | dense_1                | dense_1_input[0][0]         | relu    | uniform
+[D]     Dropout         | (None, 60)           | 0       | dropout_1              | dense_1[0][0]               | ---     | ---    
+[D]     Dense           | (None, 45)           | 2745    | dense_2                | dropout_1[0][0]             | relu    | uniform
+[D]     Dropout         | (None, 45)           | 0       | dropout_2              | dense_2[0][0]               | ---     | ---    
+[D]     Dense           | (None, 15)           | 690     | dense_3                | dropout_2[0][0]             | softmax | uniform
+[D]   
+[D]   Parameters
+[D]     Trainable	[5,895]
+[D]     Non-Trainable	[0]
+[D]     Total		[5,895]
+[D]   
+[D]   Feature vector 	[40]
+[D]   Batch size 	[256]
+[D]   Epochs 		[200]
+2017-11-29 16:11:19.393593: I tensorflow/core/platform/cpu_feature_guard.cc:137] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX
+2017-11-29 16:11:19.639770: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1030] Found device 0 with properties: 
+name: Tesla K20m major: 3 minor: 5 memoryClockRate(GHz): 0.758
+pciBusID: 0000:03:00.0
+totalMemory: 4.66GiB freeMemory: 4.59GiB
+2017-11-29 16:11:19.830104: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1030] Found device 1 with properties: 
+name: Tesla K20m major: 3 minor: 5 memoryClockRate(GHz): 0.758
+pciBusID: 0000:83:00.0
+totalMemory: 4.66GiB freeMemory: 4.59GiB
+2017-11-29 16:11:19.830187: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1045] Device peer to peer matrix
+2017-11-29 16:11:19.830213: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1051] DMA: 0 1 
+2017-11-29 16:11:19.830223: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1061] 0:   Y N 
+2017-11-29 16:11:19.830235: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1061] 1:   N Y 
+2017-11-29 16:11:19.830255: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1120] Creating TensorFlow device (/device:GPU:0) -> (device: 0, name: Tesla K20m, pci bus id: 0000:03:00.0, compute capability: 3.5)
+2017-11-29 16:11:19.830264: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1120] Creating TensorFlow device (/device:GPU:1) -> (device: 1, name: Tesla K20m, pci bus id: 0000:83:00.0, compute capability: 3.5)
+[I]   DONE     [0:19:25.359778 ] 
+[I] 
+[I] DCASE 2017::Acoustic Scene Classification / Baseline System
+[I] 
+[I] Initialize [Evaluation setup][full]
+[I] ==================================================
+[I] 
+[I]   System              
+[I]     Name                 : DCASE 2017::Acoustic Scene Classification / Baseline System
+[I]     Parameter set        : C_0_10
+[I]     Setup                : Python[3.6.2], Numpy[1.13.3], sklearn[0.19.1], Keras[2.1.1], Theano[0.9.0], Librosa[0.5.1]
+[I]   Dataset             
+[I]     Name                 : TUT-acoustic-scenes-2017-evaluation
+[I]     Active folds         : [0]
+[I]   Recognizer          
+[I]     Save path            : ../applications/challenge_submission/task1
+[I]   Evaluator           
+[I]     Save path            : ../applications/system/task1/evaluator
+Traceback (most recent call last):
+  File "../applications/task1.py", line 290, in <module>
+    sys.exit(main(sys.argv))
+  File "../applications/task1.py", line 264, in main
+    challenge_app.initialize()
+  File "/home/student030/vcwu/rbe595/proj/DCASE2017-baseline-system/dcase_framework/decorators.py", line 38, in function_wrapper
+    to_return = func(*args, **kwargs)
+  File "/home/student030/vcwu/rbe595/proj/DCASE2017-baseline-system/dcase_framework/application_core.py", line 577, in initialize
+    self.dataset.initialize()
+  File "/home/student030/vcwu/rbe595/proj/DCASE2017-baseline-system/dcase_framework/datasets.py", line 367, in initialize
+    self.extract()
+  File "/home/student030/vcwu/rbe595/proj/DCASE2017-baseline-system/dcase_framework/decorators.py", line 38, in function_wrapper
+    to_return = func(*args, **kwargs)
+  File "/home/student030/vcwu/rbe595/proj/DCASE2017-baseline-system/dcase_framework/datasets.py", line 795, in extract
+    with zipfile.ZipFile(item['local_package'], "r") as z:
+  File "/home/student030/anaconda3_redux/envs/dlnn_gpu/lib/python3.6/zipfile.py", line 1108, in __init__
+    self._RealGetContents()
+  File "/home/student030/anaconda3_redux/envs/dlnn_gpu/lib/python3.6/zipfile.py", line 1175, in _RealGetContents
+    raise BadZipFile("File is not a zip file")
+zipfile.BadZipFile: File is not a zip file

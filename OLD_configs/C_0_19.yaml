@@ -1,0 +1,93 @@
+active_set: C_0_19
+
+sets:
+  - set_id: C_0_19
+    recognizer:
+      frame_accumulation:
+        enable: false
+      frame_binarization:
+        enable: true
+        type: frame_max             # [frame_max, global_threshold]
+      decision_making:
+        enable: true
+        type: majority_vote         # [maximum, majority_vote]
+
+
+    learner_method_parameters:
+        mlp:
+            seed: 1
+
+            keras:
+                backend: tensorflow 
+                backend_parameters:
+                    floatX: float32
+                    device: gpu
+                    fastmath: true
+                    optimizer: fast_run
+                    openmp: true
+                    threads: 4
+                    CNR: true
+
+            validation:
+                enable: true
+                setup_source: generated_scene_balanced
+                validation_amount: 0.10
+                seed: 1
+
+            training:
+                nb_epoch: 100
+                batch_size: 256
+                shuffle: true
+                callbacks:
+                  - type: EarlyStopping
+                    parameters:
+                        monitor: val_categorical_accuracy
+                        min_delta: 0.001
+                        patience: 10
+                        verbose: 0
+                        mode: max
+            model:
+              config:
+                  - class_name: Dense
+                    config:
+                      units: 60
+                      kernel_initializer: uniform
+                      activation: relu
+
+                  - class_name: Dropout
+                    config:
+                      rate: 0.2
+
+                  - class_name: Dense
+                    config:
+                      units: 50 
+                      kernel_initializer: uniform
+                      activation: relu
+
+                  - class_name: Dropout
+                    config:
+                      rate: 0.1
+                  
+                  - class_name: Dense
+                    config:
+                      units: 30 
+                      kernel_initializer: uniform
+                      activation: relu
+
+                  - class_name: Dropout
+                    config:
+                      rate: 0.1
+
+                  - class_name: Dense
+                    config:
+                      units: CLASS_COUNT
+                      kernel_initializer: uniform
+                      activation: softmax
+
+              loss: categorical_crossentropy
+
+              optimizer:
+                  type: Adam
+
+              metrics:
+                  - categorical_accuracy

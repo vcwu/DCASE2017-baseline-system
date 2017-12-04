@@ -1,0 +1,124 @@
+[I] DCASE 2017::Acoustic Scene Classification / Baseline System
+[I] 
+[I] Initialize [Development setup][full]
+[I] ==================================================
+[I] 
+[I]   System              
+[I]     Name                 : DCASE 2017::Acoustic Scene Classification / Baseline System
+[I]     Parameter set        : C_0_04
+[I]     Setup                : Python[3.6.2], Numpy[1.13.3], sklearn[0.19.1], Keras[2.1.1], Theano[0.9.0], Librosa[0.5.1]
+[I]   Dataset             
+[I]     Name                 : TUT-acoustic-scenes-2017-development
+[I]     Active folds         : [0]
+[I]   Recognizer          
+[I]     Save path            : ../applications/challenge_submission/task1
+[I]   Evaluator           
+[I]     Save path            : ../applications/system/task1/evaluator
+[I]   DONE     [0:00:00.438957 ] 
+[I] 
+[I] Feature extractor
+[I] ==================================================
+[I] 
+[I]   DONE     [0:00:02.769383 ] [9360 items] 
+[I] 
+[I] Feature normalizer
+[I] ==================================================
+[I] 
+[I]   DONE     [0:00:12.083202 ] 
+[I] 
+[I] System training
+[I] ==================================================
+[I] 
+[D]   Validation set statistics
+[D]   Scene label          | Validation amount (%) 
+[D]   -------------------- + -------------------- 
+[D]   beach                | 9.62 
+[D]   bus                  | 9.62 
+[D]   cafe/restaurant      | 9.62 
+[D]   car                  | 9.62 
+[D]   city_center          | 9.62 
+[D]   forest_path          | 9.62 
+[D]   grocery_store        | 9.62 
+[D]   home                 | 9.62 
+[D]   library              | 10.58 
+[D]   metro_station        | 9.62 
+[D]   office               | 10.58 
+[D]   park                 | 9.62 
+[D]   residential_area     | 9.62 
+[D]   train                | 9.62 
+[D]   tram                 | 9.62 
+[D]   
+[D]   Training items 	[2116224]
+[D]   Validation items 	[228456]
+[D]   Keras
+[D]     Backend 	[tensorflow]
+[D]     BLAS library	[MKL]		(Threads[4], MKL_CBWR[COMPATIBLE])
+[D]   Tensorflow
+[D]     Device 		[gpu]
+[D]   
+Using TensorFlow backend.
+[D]   Model summary
+[D]     Layer type      | Output               | Param   | Name                   | Connected to                | Activ.  | Init   
+[D]     --------------- + -------------------- + ------  + ---------------------  + --------------------------- + ------- + ------
+[D]     Dense           | (None, 50)           | 2050    | dense_1                | dense_1_input[0][0]         | relu    | uniform
+[D]     Dropout         | (None, 50)           | 0       | dropout_1              | dense_1[0][0]               | ---     | ---    
+[D]     Dense           | (None, 40)           | 2040    | dense_2                | dropout_1[0][0]             | relu    | uniform
+[D]     Dropout         | (None, 40)           | 0       | dropout_2              | dense_2[0][0]               | ---     | ---    
+[D]     Dense           | (None, 15)           | 615     | dense_3                | dropout_2[0][0]             | softmax | uniform
+[D]   
+[D]   Parameters
+[D]     Trainable	[4,705]
+[D]     Non-Trainable	[0]
+[D]     Total		[4,705]
+[D]   
+[D]   Feature vector 	[40]
+[D]   Batch size 	[256]
+[D]   Epochs 		[200]
+2017-11-29 15:34:41.584502: I tensorflow/core/platform/cpu_feature_guard.cc:137] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX
+2017-11-29 15:34:41.835122: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1030] Found device 0 with properties: 
+name: Tesla K20m major: 3 minor: 5 memoryClockRate(GHz): 0.758
+pciBusID: 0000:03:00.0
+totalMemory: 4.66GiB freeMemory: 4.59GiB
+2017-11-29 15:34:42.026985: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1030] Found device 1 with properties: 
+name: Tesla K20m major: 3 minor: 5 memoryClockRate(GHz): 0.758
+pciBusID: 0000:83:00.0
+totalMemory: 4.66GiB freeMemory: 4.59GiB
+2017-11-29 15:34:42.027068: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1045] Device peer to peer matrix
+2017-11-29 15:34:42.027095: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1051] DMA: 0 1 
+2017-11-29 15:34:42.027104: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1061] 0:   Y N 
+2017-11-29 15:34:42.027116: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1061] 1:   N Y 
+2017-11-29 15:34:42.027131: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1120] Creating TensorFlow device (/device:GPU:0) -> (device: 0, name: Tesla K20m, pci bus id: 0000:03:00.0, compute capability: 3.5)
+2017-11-29 15:34:42.027139: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1120] Creating TensorFlow device (/device:GPU:1) -> (device: 1, name: Tesla K20m, pci bus id: 0000:83:00.0, compute capability: 3.5)
+[I]   DONE     [0:12:22.373462 ] 
+[I] 
+[I] DCASE 2017::Acoustic Scene Classification / Baseline System
+[I] 
+[I] Initialize [Evaluation setup][full]
+[I] ==================================================
+[I] 
+[I]   System              
+[I]     Name                 : DCASE 2017::Acoustic Scene Classification / Baseline System
+[I]     Parameter set        : C_0_04
+[I]     Setup                : Python[3.6.2], Numpy[1.13.3], sklearn[0.19.1], Keras[2.1.1], Theano[0.9.0], Librosa[0.5.1]
+[I]   Dataset             
+[I]     Name                 : TUT-acoustic-scenes-2017-evaluation
+[I]     Active folds         : [0]
+[I]   Recognizer          
+[I]     Save path            : ../applications/challenge_submission/task1
+[I]   Evaluator           
+[I]     Save path            : ../applications/system/task1/evaluator
+[E] TUTAcousticScenes_2017_EvaluationSet: Download failed [http://www.cs.tut.fi/sgn/arg/dcase2017/data/TUT-acoustic-scenes-2017-evaluation/TUT-acoustic-scenes-2017-evaluation.audio.3.zip] [116: Stale file handle]
+Traceback (most recent call last):
+  File "/home/student030/anaconda3_redux/envs/dlnn_gpu/lib/python3.6/urllib/request.py", line 281, in urlretrieve
+    tfp.write(block)
+OSError: [Errno 116] Stale file handle
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/student030/vcwu/rbe595/proj/DCASE2017-baseline-system/dcase_framework/datasets.py", line 748, in download_packages
+    data=None
+  File "/home/student030/anaconda3_redux/envs/dlnn_gpu/lib/python3.6/urllib/request.py", line 284, in urlretrieve
+    reporthook(blocknum, bs, size)
+OSError: [Errno 116] Stale file handle
+[Errno 116] Stale file handle
