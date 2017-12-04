@@ -1,0 +1,73 @@
+[I] DCASE 2017::Acoustic Scene Classification / Baseline System
+[I] 
+[I] Initialize [Development setup][full]
+[I] ==================================================
+[I] 
+[I]   System              
+[I]     Name                 : DCASE 2017::Acoustic Scene Classification / Baseline System
+[I]     Description          : DCASE2017 baseline (GPU) using DCASE2017 task 1 development dataset
+[I]     Parameter set        : dcase2017_gpu
+[I]     Setup                : Python[3.6.2], Numpy[1.13.3], sklearn[0.19.1], Keras[2.1.1], Theano[0.9.0], Librosa[0.5.1]
+[I]   Dataset             
+[I]     Name                 : TUT-acoustic-scenes-2017-development
+[I]     Active folds         : [0]
+[I]   Recognizer          
+[I]     Save path            : ../applications/challenge_submission/task1
+[I]   Evaluator           
+[I]     Save path            : ../applications/system/task1/evaluator
+[I]   DONE     [0:00:00.474517 ] 
+[I] 
+[I] Feature extractor
+[I] ==================================================
+[I] 
+[I]   DONE     [0:00:03.507560 ] [9360 items] 
+[I] 
+[I] Feature normalizer
+[I] ==================================================
+[I] 
+[I]   DONE     [0:00:00.001950 ] 
+[I] 
+[I] System training
+[I] ==================================================
+[I] 
+[I]   DONE     [0:00:00.001605 ] 
+[I] 
+[I] DCASE 2017::Acoustic Scene Classification / Baseline System
+[I] 
+[I] Initialize [Evaluation setup][full]
+[I] ==================================================
+[I] 
+[I]   System              
+[I]     Name                 : DCASE 2017::Acoustic Scene Classification / Baseline System
+[I]     Description          : DCASE2017 baseline (GPU) using DCASE2017 task 1 development dataset
+[I]     Parameter set        : dcase2017_gpu
+[I]     Setup                : Python[3.6.2], Numpy[1.13.3], sklearn[0.19.1], Keras[2.1.1], Theano[0.9.0], Librosa[0.5.1]
+[I]   Dataset             
+[I]     Name                 : TUT-acoustic-scenes-2017-evaluation
+[I]     Active folds         : [0]
+[I]   Recognizer          
+[I]     Save path            : ../applications/challenge_submission/task1
+[I]   Evaluator           
+[I]     Save path            : ../applications/system/task1/evaluator
+[I]   DONE     [0:00:00.397642 ] 
+[I] 
+[I] Feature extractor
+[I] ==================================================
+[I] 
+[I]   DONE     [0:00:01.613115 ] [1620 items] 
+[I] 
+[I] System testing
+[I] ==================================================
+[I] 
+Using TensorFlow backend.
+[I]   DONE     [0:01:06.813218 ] 
+[I] 
+[I]  
+[I] Results for the challenge are stored at [/home/student030/vcwu/rbe595/proj/DCASE2017-baseline-system/applications/challenge_submission/task1/]
+[I]  
+[I] System evaluation [Evaluation setup][full]
+[I] ==================================================
+[I] 
+[I]   No reference data available for dataset.
+[I]   DONE     [0:00:00.000164 ] 
+[I] 

@@ -1,0 +1,63 @@
+[I] DCASE 2017::Acoustic Scene Classification / Baseline System
+[I] 
+[I] Initialize [Development setup][folds]
+[I] ==================================================
+[I] 
+[I]   System              
+[I]     Name                 : DCASE 2017::Acoustic Scene Classification / Baseline System
+[I]     Parameter set        : C_3_04
+[I]     Setup                : Python[3.6.2], Numpy[1.13.3], sklearn[0.19.1], Keras[2.1.1], Theano[0.9.0], Librosa[0.5.1]
+[I]   Dataset             
+[I]     Name                 : TUT-acoustic-scenes-2017-development
+[I]     Active folds         : [1, 2, 3, 4]
+[I]   Evaluator           
+[I]     Save path            : ../applications/system/task1/evaluator
+[I]   DONE     [0:00:00.438957 ] 
+[I] 
+[I] Feature extractor
+[I] ==================================================
+[I] 
+[I]   DONE     [0:00:02.870196 ] [4680 items] 
+[I] 
+[I] Feature normalizer
+[I] ==================================================
+[I] 
+[I]   DONE     [0:00:00.004021 ] 
+[I] 
+[I] System training
+[I] ==================================================
+[I] 
+[I]   DONE     [0:00:00.004348 ] 
+[I] 
+[I] System testing
+[I] ==================================================
+[I] 
+[I]   DONE     [0:00:00.004068 ] 
+[I] 
+[I] System evaluation [Development setup][folds]
+[I] ==================================================
+[I] 
+[I]   File-wise evaluation, over 4 folds
+[I]      Scene label          | Nref : Nsys | Accuracy |  | Fold1    | Fold2    | Fold3    | Fold4    |
+[I]      =====================+======+======+==========+  +==========+==========+==========+==========+
+[I]      beach                |  312 :  285 |  75.6 %  |  |  79.5 %  |  55.1 %  |  97.4 %  |  70.5 %  |
+[I]      bus                  |  312 :  346 |  84.6 %  |  |  82.1 %  |  76.9 %  |  91.0 %  |  88.5 %  |
+[I]      cafe/restaurant      |  312 :  360 |  63.1 %  |  |  61.5 %  |  66.7 %  |  51.3 %  |  73.1 %  |
+[I]      car                  |  312 :  318 |  94.2 %  |  |  94.9 %  |  97.4 %  |  84.6 %  | 100.0 %  |
+[I]      city_center          |  312 :  347 |  85.9 %  |  |  82.1 %  |  85.9 %  |  82.1 %  |  93.6 %  |
+[I]      forest_path          |  312 :  309 |  83.7 %  |  |  88.5 %  |  94.9 %  |  84.6 %  |  66.7 %  |
+[I]      grocery_store        |  312 :  253 |  55.1 %  |  |  75.6 %  |  46.2 %  |  55.1 %  |  43.6 %  |
+[I]      home                 |  318 :  351 |  73.0 %  |  |  69.2 %  |  64.2 %  |  81.5 %  |  76.9 %  |
+[I]      library              |  312 :  182 |  43.3 %  |  |  23.1 %  |  47.4 %  |  51.3 %  |  51.3 %  |
+[I]      metro_station        |  312 :  396 |  95.2 %  |  |  88.5 %  |  93.6 %  | 100.0 %  |  98.7 %  |
+[I]      office               |  312 :  372 |  99.4 %  |  | 100.0 %  | 100.0 %  | 100.0 %  |  97.4 %  |
+[I]      park                 |  312 :  281 |  61.9 %  |  |  82.1 %  |  66.7 %  |  43.6 %  |  55.1 %  |
+[I]      residential_area     |  312 :  371 |  66.7 %  |  |  56.4 %  |  61.5 %  |  67.9 %  |  80.8 %  |
+[I]      train                |  312 :  139 |  36.5 %  |  |  46.2 %  |  28.2 %  |  38.5 %  |  33.3 %  |
+[I]      tram                 |  312 :  376 |  82.4 %  |  |  94.9 %  |  66.7 %  |  79.5 %  |  88.5 %  |
+[I]      =====================+======+======+==========+  +==========+==========+==========+==========+
+[I]      Overall accuracy     | 4686 : 4686 |  73.4 %  |  |  75.0 %  |  70.1 %  |  73.9 %  |  74.5 %  |
+[I]      Average class acc.   |      :      |  73.4 %  |  |  75.0 %  |  70.1 %  |  73.9 %  |  74.5 %  |
+[I] 
+[I]   DONE     [0:00:02.815445 ] 
+[I] 

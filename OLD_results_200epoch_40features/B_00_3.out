@@ -1,0 +1,30 @@
+[I] DCASE 2017::Acoustic Scene Classification / Baseline System
+[I] 
+[I] Initialize [Development setup][folds]
+[I] ==================================================
+[I] 
+[I]   System              
+[I]     Name                 : DCASE 2017::Acoustic Scene Classification / Baseline System
+[I]     Parameter set        : B_00_3
+[I]     Setup                : Python[3.6.2], Numpy[1.13.3], sklearn[0.19.1], Keras[2.1.1], Theano[0.9.0], Librosa[0.5.1]
+[I]   Dataset             
+[I]     Name                 : TUT-acoustic-scenes-2017-development
+[I]     Active folds         : [1, 2, 3, 4]
+[I]   Evaluator           
+[I]     Save path            : ../applications/system/task1/evaluator
+[I]   DONE     [0:00:00.431525 ] 
+[I] 
+[I] Feature extractor
+[I] ==================================================
+[I] 
+[I]   DONE     [0:00:05.311288 ] [4680 items] 
+[I] 
+[I] Feature normalizer
+[I] ==================================================
+[I] 
+[I]   DONE     [0:00:00.005523 ] 
+[I] 
+[I] System training
+[I] ==================================================
+[I] 
+slurmstepd: error: *** JOB 19272 ON compute00 CANCELLED AT 2017-12-01T17:02:34 ***

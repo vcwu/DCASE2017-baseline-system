@@ -1,0 +1,104 @@
+active_set: C_5_17
+
+sets:
+  - set_id: C_5_17
+    recognizer:
+      frame_accumulation:
+        enable: false
+      frame_binarization:
+        enable: true
+        type: frame_max             # [frame_max, global_threshold]
+      decision_making:
+        enable: true
+        type: majority_vote         # [maximum, majority_vote]
+
+    feature_extractor:
+      fs: 44100                               # Sampling frequency
+      win_length_seconds: 0.08                # Window length
+      hop_length_seconds: 0.04                # Hop length
+    feature_stacker:
+      stacking_recipe: mel 
+    feature_extractor_method_parameters:
+      mfcc_delta:                             # MFCC delta coefficients
+          width: 9                            #
+
+      mfcc_acceleration:                      # MFCC acceleration coefficients
+          width: 9                            #
+
+      mel:                                    # Mel band energy
+        mono: true                          # [true, false]
+        window: hamming_asymmetric          # [hann_asymmetric, hamming_asymmetric]
+        spectrogram_type: magnitude         # [magnitude, power]
+        n_mels: 40                          # Number of MEL bands used
+        normalize_mel_bands: false          # [true, false]
+        n_fft: 4096                        # FFT length
+        fmin: 0                             # Minimum frequency when constructing MEL bands
+        fmax: 22050                         # Maximum frequency when constructing MEL band
+        htk: false                          # Switch for HTK-styled MEL-frequency equation
+        log: true                           # Logarithmic
+
+      mfcc:                                   # Mel-frequency cepstral coefficients
+          mono: true                          # [true, false]
+          window: hamming_asymmetric          # [hann_asymmetric, hamming_asymmetric]
+          spectrogram_type: magnitude         # [magnitude, power]
+          n_mfcc: 20                          # Number of MFCC coefficients
+          n_mels: 40                          # Number of MEL bands used
+          n_fft: 2048                         # FFT length
+          fmin: 0                             # Minimum frequency when constructing MEL bands
+          fmax: 22050                         # Maximum frequency when constructing MEL band
+          htk: false                          # Switch for HTK-styled MEL-frequency equation
+
+
+    learner_method_parameters:
+        mlp:
+            seed: 1
+
+            keras:
+                backend: tensorflow 
+                backend_parameters:
+                    floatX: float32
+                    device: gpu
+                    fastmath: true
+                    optimizer: fast_run
+                    openmp: true
+                    threads: 4
+                    CNR: true
+
+
+            config:
+                  - class_name: Dense
+                    config:
+                      units: 80
+                      kernel_initializer: uniform
+                      activation: relu
+
+                  - class_name: Dropout
+                    config:
+                      rate: 0.3
+
+                  - class_name: Dense
+                    config:
+                      units: 30 
+                      kernel_initializer: uniform
+                      activation: relu
+
+                  - class_name: Dropout
+                    config:
+                      rate: 0.2
+                  
+                  - class_name: Dense
+                    config:
+                      units: 20 
+                      kernel_initializer: uniform
+                      activation: relu
+
+                  - class_name: Dropout
+                    config:
+                      rate: 0.2
+
+                  - class_name: Dense
+                    config:
+                      units: CLASS_COUNT
+                      kernel_initializer: uniform
+                      activation: softmax
+

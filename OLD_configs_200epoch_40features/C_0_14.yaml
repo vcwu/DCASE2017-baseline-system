@@ -1,0 +1,68 @@
+active_set: C_0_14
+
+sets:
+  - set_id: C_0_14
+    recognizer:
+      frame_accumulation:
+        enable: false
+      frame_binarization:
+        enable: true
+        type: frame_max             # [frame_max, global_threshold]
+      decision_making:
+        enable: true
+        type: majority_vote         # [maximum, majority_vote]
+
+
+    learner_method_parameters:
+        mlp:
+            seed: 1
+
+            keras:
+                backend: tensorflow 
+                backend_parameters:
+                    floatX: float32
+                    device: gpu
+                    fastmath: true
+                    optimizer: fast_run
+                    openmp: true
+                    threads: 4
+                    CNR: true
+
+
+            config:
+                  - class_name: Dense
+                    config:
+                      units: 70
+                      kernel_initializer: uniform
+                      activation: relu
+
+                  - class_name: Dropout
+                    config:
+                      rate: 0.2
+
+                  - class_name: Dense
+                    config:
+                      units: 40 
+                      kernel_initializer: uniform
+                      activation: relu
+
+                  - class_name: Dropout
+                    config:
+                      rate: 0.2
+                  
+                  - class_name: Dense
+                    config:
+                      units: 30 
+                      kernel_initializer: uniform
+                      activation: relu
+
+                  - class_name: Dropout
+                    config:
+                      rate: 0.2
+
+                  - class_name: Dense
+                    config:
+                      units: CLASS_COUNT
+                      kernel_initializer: uniform
+                      activation: softmax
+

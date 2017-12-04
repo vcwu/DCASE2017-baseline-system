@@ -1,0 +1,4 @@
+usage: task1.py [-h] [-m {dev,challenge}] [-p FILE] [-s PARAMETER_SET] [-n]
+                [-show_sets] [-show_datasets] [-show_parameters] [-show_eval]
+                [-o] [-v]
+task1.py: error: argument -p/--parameters: ../configs/B_00_1_simple.yaml does not exist
