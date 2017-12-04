@@ -20,15 +20,15 @@ sets:
       hop_length_seconds: 0.02
     learner:
       method: mlp
-      show_model_information: false
+      show_model_information: false 
     learner_method_parameters:
       mlp:
         seed: 0
         keras:
-          backend: theano
+          backend: tensorflow
           backend_parameters:
             floatX: float64
-            device: cpu
+            device: cpu 
             fastmath: false
             optimizer: None
             openmp: false
@@ -41,7 +41,7 @@ sets:
           validation_amount: 0.10
 
         training:
-          epochs: 200
+          epochs: 100
           batch_size: 256
           shuffle: true
           callbacks:
@@ -116,12 +116,12 @@ sets:
       hop_length_seconds: 0.02
     learner:
       method: mlp
-      show_model_information: false
+      show_model_information: false 
     learner_method_parameters:
       mlp:
         seed: 1
         keras:
-          backend: theano
+          backend: tensorflow
           backend_parameters:
             floatX: float32
             device: gpu
@@ -451,7 +451,7 @@ defaults:
     method: mlp                             #
 
     audio_error_handling: false             # Handling audio errors (temporary microphone failure and radio signal interferences from mobile phones)
-    show_model_information: false           # Show extra model information after model is ready
+    show_model_information:  false           # Show extra model information after model is ready
 
   learner_method_parameters:
     gmm:
@@ -479,10 +479,10 @@ defaults:
       seed: 1
 
       keras:
-        backend: theano
+        backend: tensorflow
         backend_parameters:
           floatX: float64
-          device: cpu
+          device: cpu 
           fastmath: false
           optimizer: None
           openmp: false
